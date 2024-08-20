@@ -32,5 +32,18 @@
             $data = $req->fetchAll(PDO::FETCH_OBJ);
             return $data;
         }
+
+        public function prepare($statement, $attributes, $class_name, $one= false)
+        {
+            $req = $this->getPdo()->prepare($statement);
+            $req->execute($attributes);
+            $req->fetchAll(PDO::FETCH_CLASS, $class_name);
+            if($one){
+                $data = $req->fetch();
+            }else{
+                $data = $req->fetchAll();
+            }
+            return $data;
+        }
     }
 ?>

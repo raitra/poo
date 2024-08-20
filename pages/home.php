@@ -1,8 +1,8 @@
 <?php
 
-use App\Database;
-    $db = new Database('blog');
-    $data = $db->query('SELECT * FROM articles');
+use App\Connexion;
+use App\Table\Article;
+    $data = Article::getLast();
 ?>
 
 <h1>Home page</h1>
@@ -13,7 +13,7 @@ use App\Database;
             <div class="fw-bold"><?php echo $item->title ?></div>
                 <?php echo $item->description; ?>
             </div>
-            <!-- <span class="badge text-bg-primary rounded-pill">14</span> -->
+            <span class="badge text-bg-primary rounded-pill"><?php echo $item->titre ?></span>
         </li>
     <?php endforeach; ?>
 
