@@ -6,25 +6,19 @@ use App\Database;
 
     Autoloader::register();
     
-    if(isset($_GET['p'])){
-        $page = $_GET['p'];
-    }else{
-        $page = 'home';
-    }
-
+    $page = isset($_GET['p']) ? $_GET['p'] : 'home';    
     $db = Connexion::getDatabase();
+
 
     ob_start();
     if($page === 'home'){
         require '../pages/home.php';
-    }
-
-    if($page === 'article'){
+    }elseif($page === 'article'){
         require '../pages/single.php';
-    }
-
-    if($page === 'categorie'){
+    }elseif($page === 'categorie'){
         require '../pages/categorie.php';
+    }else{
+        echo 'Page d\' erreur';
     }
 
     $content = ob_get_clean();

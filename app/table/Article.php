@@ -6,6 +6,9 @@ use App\Database;
 
     class Article
     {
+
+        private static $table = 'articles';
+
        public static function getLast()
        {
             return Connexion::getDatabase()->query(
@@ -15,10 +18,18 @@ use App\Database;
             );
        }
        
-        public function getUrl()
+        public static function getUrl()
         {
-            return 'index.php?p=article&id='. $this->id;
+            return 'index.php?p=article';
         }
+
+        public static function getAll(){
+            return Connexion::getDatabase()->query(
+                'SELECT * FROM '. self::$table . ''             
+            );
+        }
+
+        
 
         public function getExtrait()
         {

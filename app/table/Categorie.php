@@ -14,8 +14,8 @@ use App\Connexion;
             );
         }
         
-        public function getUrl(){
-            return 'categorie.php?p=categorie';
+        public static function getUrl(){
+            return '../../pages/index.php?p=categorie';
         }
     }
 ?>

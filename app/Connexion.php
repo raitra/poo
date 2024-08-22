@@ -8,6 +8,16 @@
         const DB_USERNAME = 'root'; 
         private static $database;
 
+        private static $title = 'Mon Blog';
+
+        public static function getTitle(){
+            return self::$title;
+        }
+
+        public function setTitle($title){
+            $this->title = $title;
+        }
+
         public static function getDatabase()
         {
             if(self::$database === null){

@@ -1,9 +1,15 @@
+<?php
+
+use App\Connexion;
+use App\Table\Article;
+use App\Table\Categorie;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Poo</title>
+    <title>Mon Blog</title>
     <link rel="stylesheet" href="../src/main.css">
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 </head>
@@ -12,10 +18,10 @@
 
         <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="<?php Article::getUrl(); ?>">Article</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../pages/categorie.php">Categorie</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Other</a>
